@@ -3,12 +3,4 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 
-Route::get('/', function () {
-    return redirect('/buku');
-});
-
-Route::get('/buku', [BukuController::class, 'index'])
-    ->name('buku.index');
-
-Route::get('/buku/{kode}', [BukuController::class, 'show'])
-    ->name('buku.show');
+Route::resource('buku', BukuController::class)->except('show');
